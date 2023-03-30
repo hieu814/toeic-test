@@ -21,8 +21,8 @@ const String placeholderUrl =
 
 class MyConfig {
   static const String appName = "Shopping App";
-  static const String apiURL = '192.168.2.14:1337'; //PROD_URL
-  static const loginAPI = "/auth/local";
+  static const String apiURL = 'http://192.168.1.32:5000/client'; //PROD_URL
+  static const loginAPI = "/auth/login";
   static const registerAPI = "/auth/local/register";
   static const userProfileAPI = "/users/user-Profile";
   static const groupExam = "/group-exams";
@@ -91,7 +91,7 @@ class HexColor extends Color {
   static int _getColorFromHex(String hexColor) {
     hexColor = hexColor.toUpperCase().replaceAll("#", "");
     if (hexColor.length == 6) {
-      hexColor = "FF" + hexColor;
+      hexColor = "FF$hexColor";
     }
     return int.parse(hexColor, radix: 16);
   }

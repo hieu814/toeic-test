@@ -5,7 +5,6 @@ import 'package:toeic/screens/login/signup.dart';
 import '../../controllers/auth/auth_controller.dart';
 import '../../router/RouteName.dart';
 import '../../styles/styles.dart';
-import '../../utils/common_function.dart';
 import '../../widgets/widgets.dart';
 
 class Signin extends StatefulWidget {

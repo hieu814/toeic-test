@@ -13,11 +13,7 @@ class APIService {
     Map<String, String> requestHeaders = {
       'Content-Type': 'application/json',
     };
-
-    var url = Uri.http(
-      MyConfig.apiURL,
-      keyAPI,
-    );
+    final url = Uri.parse('${MyConfig.apiURL}${keyAPI}');
 
     return client.post(
       url,

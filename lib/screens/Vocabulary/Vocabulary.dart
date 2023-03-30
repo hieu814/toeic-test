@@ -1,9 +1,6 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
-import 'package:flutter_html/flutter_html.dart';
 import '../../model/models.dart';
 import '../../utils/constant.dart';
 import '../../widgets/widgets.dart';
@@ -15,19 +12,19 @@ class Vocabulary extends StatelessWidget {
   Widget build(BuildContext context) {
     GroupVocabularies vocabularies =
         Get.arguments ?? GroupVocabularies(vocabularies: []);
-    List<Vocabularies> _vocabulary = vocabularies.vocabularies ?? [];
+    List<Vocabularies> vocabulary = vocabularies.vocabularies ?? [];
     return Scaffold(
         appBar: AppBar(
           title: Text(vocabularies.title ?? ""),
         ),
         body: Container(
           child: ListView.builder(
-            itemCount: _vocabulary.length,
+            itemCount: vocabulary.length,
             itemBuilder: (context, index) {
               return GestureDetector(
                 child: ListTile(
-                  leading: FlutterLogo(),
-                  title: Text("${_vocabulary[index].getWord()}"),
+                  leading: const FlutterLogo(),
+                  title: Text(vocabulary[index].getWord()),
                 ),
                 onTap: () async {
                   Get.to(VocabularyDetail(
@@ -82,7 +79,7 @@ class _VocabularyDetailState extends State<VocabularyDetail> {
                   padding: const EdgeInsets.only(bottom: 8),
                   child: Text(
                     currentVocabulary.word ?? "",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
+                    style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 40),
                   ),
                 ),
                 Text(
@@ -108,7 +105,7 @@ class _VocabularyDetailState extends State<VocabularyDetail> {
     Color color = Theme.of(context).primaryColor;
 
     Widget textSection = Padding(
-      padding: EdgeInsets.all(32),
+      padding: const EdgeInsets.all(32),
       child: HtmlText(text: currentVocabulary.description ?? ""),
     );
     GlobalKey<FlipCardState> cardKey = GlobalKey<FlipCardState>();
@@ -141,14 +138,14 @@ class _VocabularyDetailState extends State<VocabularyDetail> {
                   back: Card(
                     child: SingleChildScrollView(
                       child: Column(children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 50,
                         ),
                         Container(
                           padding: const EdgeInsets.only(bottom: 8),
                           child: Text(
                             currentVocabulary.word ?? "",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontWeight: FontWeight.bold, fontSize: 40),
                           ),
                         ),
@@ -159,14 +156,14 @@ class _VocabularyDetailState extends State<VocabularyDetail> {
                             color: Colors.grey[500],
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Container(
                           padding: const EdgeInsets.only(bottom: 8),
                           child: Text(
                             currentVocabulary.translate ?? "",
-                            style: TextStyle(fontSize: 30),
+                            style: const TextStyle(fontSize: 30),
                           ),
                         ),
                         textSection,
@@ -189,14 +186,14 @@ class _VocabularyDetailState extends State<VocabularyDetail> {
                       });
                     }
                   },
-                  child: Text('Back'),
+                  child: const Text('Back'),
                 ),
                 ElevatedButton(
                   style: raisedButtonStyle,
                   onPressed: () {
                     cardKey.currentState!.toggleCard();
                   },
-                  child: Text('Flip'),
+                  child: const Text('Flip'),
                 ),
                 ElevatedButton(
                   style: raisedButtonStyle,
@@ -208,7 +205,7 @@ class _VocabularyDetailState extends State<VocabularyDetail> {
                       });
                     }
                   },
-                  child: Text('Next'),
+                  child: const Text('Next'),
                 )
               ],
             )
@@ -221,8 +218,8 @@ class _VocabularyDetailState extends State<VocabularyDetail> {
   final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
     // onPrimary: Colors.black87,
     // primary: Colors.grey[300],
-    minimumSize: Size(88, 36),
-    padding: EdgeInsets.symmetric(horizontal: 16),
+    minimumSize: const Size(88, 36),
+    padding: const EdgeInsets.symmetric(horizontal: 16),
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(2)),
     ),
@@ -241,7 +238,7 @@ class _VocabularyDetailState extends State<VocabularyDetail> {
                 width: 2.0,
               ),
               borderRadius: BorderRadius.circular(10.0),
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                     color: Colors.grey,
                     blurRadius: 2.0,

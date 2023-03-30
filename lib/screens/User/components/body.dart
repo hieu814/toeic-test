@@ -5,10 +5,10 @@ import '../../../controllers/controllers.dart';
 import '../../../model/User.dart';
 import '../../../router/RouteName.dart';
 import 'profile_menu.dart';
-import 'profile_pic.dart';
-import 'package:provider/provider.dart';
 
 class Body extends StatefulWidget {
+  const Body({super.key});
+
   @override
   State<Body> createState() => _BodyState();
 }
@@ -16,14 +16,14 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
-    var _auth = Get.find<AuthController>();
+    var auth = Get.find<AuthController>();
     return SingleChildScrollView(
-      padding: EdgeInsets.symmetric(vertical: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
         children: [
           // ProfilePic(),
-          buildName(_auth.getUser()),
-          SizedBox(height: 20),
+          buildName(auth.getUser()),
+          const SizedBox(height: 20),
           ProfileMenu(
             text: "Sửa thông tin",
             icon: "assets/icons/User Icon.svg",
@@ -41,7 +41,7 @@ class _BodyState extends State<Body> {
           ProfileMenu(
             text: "Đổi mật khẩu",
             icon: "", //"assets/icons/Question mark.svg",
-            iconWidget: Icon(Icons.password_sharp),
+            iconWidget: const Icon(Icons.password_sharp),
             press: () async {
               Get.toNamed(RouteName.changePassword);
             },
@@ -64,12 +64,12 @@ class _BodyState extends State<Body> {
       children: [
         Text(
           user.username ?? "",
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
         ),
         const SizedBox(height: 4),
         Text(
           user.email ?? "No email",
-          style: TextStyle(color: Colors.grey),
+          style: const TextStyle(color: Colors.grey),
         )
       ],
     );

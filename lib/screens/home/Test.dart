@@ -1,21 +1,24 @@
-import 'dart:typed_data';
 
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: Home());
+    return const MaterialApp(home: Home());
   }
 }
 
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   State<Home> createState() => _HomeState();
 }
@@ -73,16 +76,16 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: Text("Play Audio in Flutter App"),
+            title: const Text("Play Audio in Flutter App"),
             backgroundColor: Colors.redAccent),
         body: Container(
-            margin: EdgeInsets.only(top: 50),
+            margin: const EdgeInsets.only(top: 50),
             child: Column(
               children: [
                 Container(
                   child: Text(
                     currentpostlabel,
-                    style: TextStyle(fontSize: 25),
+                    style: const TextStyle(fontSize: 25),
                   ),
                 ),
                 Container(
@@ -161,8 +164,8 @@ class _HomeState extends State<Home> {
                               print("Error on stop audio.");
                             }
                           },
-                          icon: Icon(Icons.stop),
-                          label: Text("Stop")),
+                          icon: const Icon(Icons.stop),
+                          label: const Text("Stop")),
                     ],
                   ),
                 )

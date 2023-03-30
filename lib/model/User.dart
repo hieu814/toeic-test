@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:toeic/model/Image.dart';
 
@@ -203,9 +202,9 @@ class User {
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
     iV = json['__v'];
-    role = json['role'] != null ? new Role.fromJson(json['role']) : null;
+    role = json['role'] != null ? Role.fromJson(json['role']) : null;
     userInfor = json['user_infor'] != null
-        ? new UserInfor.fromJson(json['user_infor'])
+        ? UserInfor.fromJson(json['user_infor'])
         : null;
     // if (json['answer_sheets'] != null) {
     //   answerSheets = <Null>[];
@@ -217,27 +216,27 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['confirmed'] = this.confirmed;
-    data['blocked'] = this.blocked;
-    data['_id'] = this.sId;
-    data['username'] = this.username;
-    data['email'] = this.email;
-    data['provider'] = this.provider;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
-    if (this.role != null) {
-      data['role'] = this.role!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['confirmed'] = confirmed;
+    data['blocked'] = blocked;
+    data['_id'] = sId;
+    data['username'] = username;
+    data['email'] = email;
+    data['provider'] = provider;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
+    if (role != null) {
+      data['role'] = role!.toJson();
     }
-    if (this.userInfor != null) {
-      data['user_infor'] = this.userInfor!.toJson();
+    if (userInfor != null) {
+      data['user_infor'] = userInfor!.toJson();
     }
     // if (this.answerSheets != null) {
     //   data['answer_sheets'] =
     //       this.answerSheets!.map((v) => v.toJson()).toList();
     // }
-    data['id'] = this.id;
+    data['id'] = id;
     return data;
   }
 }
@@ -262,13 +261,13 @@ class Role {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['name'] = this.name;
-    data['description'] = this.description;
-    data['type'] = this.type;
-    data['__v'] = this.iV;
-    data['id'] = this.id;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['name'] = name;
+    data['description'] = description;
+    data['type'] = type;
+    data['__v'] = iV;
+    data['id'] = id;
     return data;
   }
 }
@@ -298,8 +297,8 @@ class UserInfor {
       this.id});
 
   UserInfor.fromJson(Map<String, dynamic> json) {
-    image = json['image'] != null && !(json['image'] is List<dynamic>)
-        ? new ImageModel.fromJson(json['image'])
+    image = json['image'] != null && json['image'] is! List<dynamic>
+        ? ImageModel.fromJson(json['image'])
         : null;
     sId = json['_id'];
     phone = json['phone'];
@@ -313,19 +312,19 @@ class UserInfor {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.image != null) {
-      data['Image'] = this.image!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (image != null) {
+      data['Image'] = image!.toJson();
     }
-    data['_id'] = this.sId;
-    data['phone'] = this.phone;
-    data['fullname'] = this.fullname;
-    data['address'] = this.address;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
-    data['users_permissions_user'] = this.usersPermissionsUser;
-    data['id'] = this.id;
+    data['_id'] = sId;
+    data['phone'] = phone;
+    data['fullname'] = fullname;
+    data['address'] = address;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
+    data['users_permissions_user'] = usersPermissionsUser;
+    data['id'] = id;
     return data;
   }
 }

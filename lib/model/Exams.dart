@@ -20,7 +20,7 @@ class Exams {
   }
 
   factory Exams.fromJson(String source) {
-    source = "{ \"exams\":" + source + "}";
+    source = "{ \"exams\":$source}";
     return Exams.fromMap(json.decode(source));
   }
 }
@@ -58,7 +58,7 @@ class Exam {
     if (json['parts'] != null) {
       parts = <Parts>[];
       json['parts'].forEach((v) {
-        parts!.add(new Parts.fromJson(v));
+        parts!.add(Parts.fromJson(v));
       });
     }
     id = json['id'];
@@ -91,7 +91,7 @@ class Parts {
     if (json['groupQuestions'] != null) {
       groupQuestions = <GroupQuestions>[];
       json['groupQuestions'].forEach((v) {
-        groupQuestions!.add(new GroupQuestions.fromJson(v));
+        groupQuestions!.add(GroupQuestions.fromJson(v));
       });
     }
     createdAt = json['createdAt'];
@@ -118,7 +118,7 @@ class GroupQuestions {
     if (json['questions'] != null) {
       questions = <QuestionComponent>[];
       json['questions'].forEach((v) {
-        questions!.add(new QuestionComponent.fromJson(v));
+        questions!.add(QuestionComponent.fromJson(v));
       });
     }
     iV = json['__v'];
@@ -157,24 +157,24 @@ class QuestionComponent {
     questionNumber = json['question_number'];
     iV = json['__v'];
     // List<dynamic>
-    audio = json['audio'] != null && !(json['audio'] is List<dynamic>)
-        ? new Audio.fromJson(json['audio'])
+    audio = json['audio'] != null && json['audio'] is! List<dynamic>
+        ? Audio.fromJson(json['audio'])
         : null;
-    image = json['image'] != null && !(json['image'] is List<dynamic>)
-        ? new ImageModel.fromJson(json['image'])
+    image = json['image'] != null && json['image'] is! List<dynamic>
+        ? ImageModel.fromJson(json['image'])
         : null;
     id = json['id'];
     if (json['questions'] != null) {
       questions = <Question>[];
       json['questions'].forEach((v) {
-        questions!.add(new Question.fromJson(v));
+        questions!.add(Question.fromJson(v));
       });
     }
     transcript = json['transcript'];
     if (json['passages'] != null) {
       passages = <Passages>[];
       json['passages'].forEach((v) {
-        passages!.add(new Passages.fromJson(v));
+        passages!.add(Passages.fromJson(v));
       });
     }
   }
@@ -233,8 +233,8 @@ class Passages {
   Passages.fromJson(Map<String, dynamic> json) {
     sId = json['_id'];
     iV = json['__v'];
-    image = json['image'] != null && !(json['image'] is List<dynamic>)
-        ? new ImageModel.fromJson(json['image'])
+    image = json['image'] != null && json['image'] is! List<dynamic>
+        ? ImageModel.fromJson(json['image'])
         : null;
     id = json['id'];
   }

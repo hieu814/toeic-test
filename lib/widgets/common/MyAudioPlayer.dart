@@ -1,15 +1,9 @@
-import 'dart:typed_data';
 
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/controllers.dart';
 import '../../model/Audio.dart';
-import 'AssetImageButton.dart';
 
 class MyAudioPlayer extends StatefulWidget {
   const MyAudioPlayer({
@@ -29,6 +23,7 @@ class MyAudioPlayer extends StatefulWidget {
 }
 
 class _MyAudioPlayerState extends State<MyAudioPlayer> {
+  @override
   @protected
   @mustCallSuper
   void dispose() {
@@ -63,7 +58,7 @@ class _MyAudioPlayerState extends State<MyAudioPlayer> {
   @override
   Widget build(BuildContext context) {
     return widget.isVocabulary
-        ? Container(
+        ? SizedBox(
             height: widget.height,
             width: widget.width,
             child: Expanded(
@@ -72,7 +67,7 @@ class _MyAudioPlayerState extends State<MyAudioPlayer> {
               onPressed: () async {
                 await Get.find<AudioPlayerController>().resume();
               },
-              icon: Icon(Icons.volume_up_outlined),
+              icon: const Icon(Icons.volume_up_outlined),
               color: Theme.of(context).primaryColor,
             )),
           )
@@ -93,7 +88,7 @@ class _MyAudioPlayerState extends State<MyAudioPlayer> {
                       int seekval = controller.currentDuration.value - 5 * 1000;
                       await controller.seek(seekval);
                     },
-                    icon: Icon(Icons.forward_5),
+                    icon: const Icon(Icons.forward_5),
                     color: Theme.of(context).primaryColor,
                   ),
                   Text(

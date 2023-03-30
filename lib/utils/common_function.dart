@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 import 'package:toeic/utils/constant.dart';
 
 class CommonFunction {
@@ -52,7 +51,7 @@ class CommonFunction {
     String sub = '"message":"';
     if (body.contains(sub)) {
       String data = body.substring(body.indexOf(sub) + sub.length, body.length);
-      if (data.length > 0) {
+      if (data.isNotEmpty) {
         return (data.split('"')[0]);
       }
     }

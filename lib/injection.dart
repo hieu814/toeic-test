@@ -1,4 +1,3 @@
-import 'package:get_it/get_it.dart';
 
 import 'modules/moduls.dart';
 import 'utils/constant.dart';

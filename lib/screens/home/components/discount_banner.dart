@@ -18,14 +18,14 @@ class DiscountBanner extends StatelessWidget {
         vertical: getProportionateScreenWidth(15),
       ),
       decoration: BoxDecoration(
-        color: Color(0xFF4A3298),
+        color: const Color(0xFF4A3298),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Text.rich(
         TextSpan(
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
           children: [
-            TextSpan(text: "Wellcome to\n"),
+            const TextSpan(text: "Wellcome to\n"),
             TextSpan(
               text: "TOEIC TEST",
               style: TextStyle(

@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../../controllers/auth/auth_controller.dart';
 import '../../router/RouteName.dart';
 import '../../styles/app_colors.dart';
-import '../../widgets/login/custom_header.dart';
 import '../../widgets/widgets.dart';
 
 class SignUp extends StatefulWidget {

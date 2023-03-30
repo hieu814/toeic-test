@@ -4,6 +4,8 @@ import 'package:toeic/screens/home/components/section_title.dart';
 import '../../../utils/constant.dart';
 
 class Categories extends StatelessWidget {
+  const Categories({super.key});
+
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
@@ -20,7 +22,7 @@ class Categories extends StatelessWidget {
         Padding(
           padding:
               EdgeInsets.symmetric(horizontal: getProportionateScreenWidth(20)),
-          child: SectionTitle(
+          child: const SectionTitle(
             title: "Skill test",
             // press: () {},
           ),
@@ -78,7 +80,7 @@ class CategoryCard extends StatelessWidget {
                   child: Text(
                     text!,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 30,
                         color: Colors.white),

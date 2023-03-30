@@ -1,11 +1,8 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/auth/auth_controller.dart';
-import '../../modules/UserService.dart';
-import '../../utils/constant.dart';
 import '../widgets.dart';
 
 class SideMenu extends StatelessWidget {
@@ -30,7 +27,7 @@ class SideMenu extends StatelessWidget {
                   },
                   icon: const Icon(Icons.logout_outlined))
             ],
-            currentAccountPicture: CircleAvatar(
+            currentAccountPicture: const CircleAvatar(
               child: DisplayCircleImage(
                 url: "",
               ),

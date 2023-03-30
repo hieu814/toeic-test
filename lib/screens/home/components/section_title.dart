@@ -27,7 +27,7 @@ class SectionTitle extends StatelessWidget {
         if (press != null)
           GestureDetector(
             onTap: press,
-            child: Text(
+            child: const Text(
               "See More",
               style: TextStyle(color: Color(0xFFBBBBBB)),
             ),

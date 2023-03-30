@@ -16,8 +16,8 @@ class SearchField extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
         ),
         child: Row(
-          children: [
-            const Expanded(
+          children: const [
+            Expanded(
                 child: Center(
                     child: Text(
               "TOEIC TEST",

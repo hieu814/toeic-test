@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/controllers.dart';
@@ -18,9 +16,9 @@ class GroupExam extends GetView<ExamController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Exams"),
+        title: const Text("Exams"),
       ),
-      body: Obx(() => Container(
+      body: Obx(() => SizedBox(
             height: double.infinity,
             width: double.infinity,
             child: ListView.builder(
@@ -79,7 +77,7 @@ class VocabularyCard extends StatelessWidget {
                 child: Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       child: Image.asset(
                         'assets/icons/exam_icon.png',
                         fit: BoxFit.cover,

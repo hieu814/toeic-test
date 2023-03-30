@@ -45,13 +45,13 @@ class MyApp extends StatelessWidget {
             primary: kColorFimary,
             secondary: kSecondaryColor,
           ),
-          appBarTheme: AppBarTheme(
+          appBarTheme: const AppBarTheme(
               // color: kColorFimary,
               backgroundColor: kSecondaryColor,
               foregroundColor: Colors.white //here you can give the text color
               )),
       initialRoute: RouteName.initialScreen,
-      unknownRoute: GetPage(name: '/notfound', page: () => NotFoundScreen()),
+      unknownRoute: GetPage(name: '/notfound', page: () => const NotFoundScreen()),
       getPages: [
         GetPage(
             name: RouteName.profileScreen, page: () => const ProfileScreen()),

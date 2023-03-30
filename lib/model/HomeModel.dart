@@ -7,15 +7,15 @@ class GroupExam {
     if (json['groupexams'] != null) {
       groupexams = <Groupexams>[];
       json['groupexams'].forEach((v) {
-        groupexams!.add(new Groupexams.fromJson(v));
+        groupexams!.add(Groupexams.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.groupexams != null) {
-      data['groupexams'] = this.groupexams!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (groupexams != null) {
+      data['groupexams'] = groupexams!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -47,7 +47,7 @@ class Groupexams {
     if (json['exams'] != null) {
       exams = <ExamData>[];
       json['exams'].forEach((v) {
-        exams!.add(new ExamData.fromJson(v));
+        exams!.add(ExamData.fromJson(v));
       });
     }
     sId = json['_id'];
@@ -61,18 +61,18 @@ class Groupexams {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.exams != null) {
-      data['exams'] = this.exams!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (exams != null) {
+      data['exams'] = exams!.map((v) => v.toJson()).toList();
     }
-    data['_id'] = this.sId;
-    data['Name'] = this.name;
-    data['description'] = this.description;
-    data['published_at'] = this.publishedAt;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
-    data['id'] = this.id;
+    data['_id'] = sId;
+    data['Name'] = name;
+    data['description'] = description;
+    data['published_at'] = publishedAt;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
+    data['id'] = id;
     return data;
   }
 }
@@ -111,16 +111,16 @@ class ExamData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['name'] = this.name;
-    data['descripton'] = this.descripton;
-    data['published_at'] = this.publishedAt;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['name'] = name;
+    data['descripton'] = descripton;
+    data['published_at'] = publishedAt;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
 
-    data['id'] = this.id;
+    data['id'] = id;
     return data;
   }
 }

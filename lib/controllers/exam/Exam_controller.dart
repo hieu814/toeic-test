@@ -9,7 +9,7 @@ import '../../utils/constant.dart';
 
 class ExamController extends GetxController {
   static ExamController instance = Get.find();
-  Rx<GroupExam> _groupExam = Rx<GroupExam>(GroupExam(groupexams: []));
+  final Rx<GroupExam> _groupExam = Rx<GroupExam>(GroupExam(groupexams: []));
   GroupExam get groupExam => _groupExam.value;
 
   @override

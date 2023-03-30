@@ -9,7 +9,7 @@ import '../../utils/constant.dart';
 
 class VocabularyController extends GetxController {
   static VocabularyController instance = Get.find();
-  Rx<GroupVocabulary> _groupVocabulary =
+  final Rx<GroupVocabulary> _groupVocabulary =
       Rx<GroupVocabulary>(GroupVocabulary(groupVocabularies: []));
   GroupVocabulary get groupVocabulary => _groupVocabulary.value;
 

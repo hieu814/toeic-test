@@ -9,8 +9,6 @@ import 'HomeTitleCard.dart';
 import 'categories.dart';
 import 'discount_banner.dart';
 import 'home_header.dart';
-import 'popular_product.dart';
-import 'special_offers.dart';
 
 class Body extends GetWidget<HomeController> {
   const Body({
@@ -23,9 +21,9 @@ class Body extends GetWidget<HomeController> {
         child: Column(
           children: [
             SizedBox(height: getProportionateScreenHeight(20)),
-            HomeHeader(),
+            const HomeHeader(),
             SizedBox(height: getProportionateScreenWidth(10)),
-            DiscountBanner(),
+            const DiscountBanner(),
             SizedBox(height: getProportionateScreenWidth(10)),
             Obx(
               (() => Column(
@@ -73,7 +71,7 @@ class Body extends GetWidget<HomeController> {
                   )),
             ),
             SizedBox(height: getProportionateScreenWidth(10)),
-            Categories(),
+            const Categories(),
             SizedBox(height: getProportionateScreenWidth(30)),
             Obx(
               (() => Column(

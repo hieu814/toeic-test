@@ -1,13 +1,8 @@
-import 'dart:convert';
-
 import 'package:get/get.dart';
-import '../../injection.dart';
 import '../../model/AuthUser.dart';
 import '../../model/User.dart';
-import '../../modules/UserService.dart';
 import '../../modules/moduls.dart';
 import '../../router/RouteName.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../../utils/common_function.dart';
 import '../../utils/constant.dart';
@@ -79,7 +74,7 @@ class AuthController extends GetxController {
     try {
       CommonFunction.showLoadingDialog();
       return APIService.requestPOST_No_Token(
-              MyConfig.loginAPI, {"password": password, "identifier": email})
+              MyConfig.loginAPI, {"password": password, "username": email})
           .then((value) async {
         Get.back();
         if (CommonFunction.checkHttpRespond(value)) {

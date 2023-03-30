@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import 'package:image_picker/image_picker.dart';
 
@@ -21,8 +20,8 @@ ImagePicker? sl;
 
 class _EditUserScreenState extends State<EditUserScreen> {
   final ImagePicker _imagePicker = ImagePicker();
-  TextEditingController _passwordController = new TextEditingController();
-  GlobalKey<FormState> _key = new GlobalKey();
+  final TextEditingController _passwordController = TextEditingController();
+  final GlobalKey<FormState> _key = GlobalKey();
   AutovalidateMode _validate = AutovalidateMode.disabled;
   String? fullName, phone, mobile, address;
 
@@ -36,11 +35,11 @@ class _EditUserScreenState extends State<EditUserScreen> {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: SingleChildScrollView(
         child: Container(
-          margin: new EdgeInsets.only(left: 16.0, right: 16, bottom: 16),
+          margin: const EdgeInsets.only(left: 16.0, right: 16, bottom: 16),
           child: Form(
             key: _key,
             autovalidateMode: _validate,
@@ -65,26 +64,26 @@ class _EditUserScreenState extends State<EditUserScreen> {
 
   _onCameraClick() {
     final action = CupertinoActionSheet(
-      message: Text(
+      message: const Text(
         "Add profile picture",
         style: TextStyle(fontSize: 15.0),
       ),
       actions: <Widget>[
         CupertinoActionSheetAction(
-          child: Text("Choose from gallery"),
           isDefaultAction: false,
           onPressed: () async {},
+          child: const Text("Choose from gallery"),
         ),
         CupertinoActionSheetAction(
-          child: Text("Take a picture"),
           isDestructiveAction: false,
           onPressed: () async {
             Navigator.pop(context);
           },
+          child: const Text("Take a picture"),
         )
       ],
       cancelButton: CupertinoActionSheetAction(
-        child: Text("Cancel"),
+        child: const Text("Cancel"),
         onPressed: () {
           Navigator.pop(context);
         },
@@ -127,19 +126,19 @@ class _EditUserScreenState extends State<EditUserScreen> {
           padding: const EdgeInsets.only(right: 40.0, left: 40.0, top: 40.0),
           child: ConstrainedBox(
             constraints: const BoxConstraints(minWidth: double.infinity),
-            child: RaisedButton(
-              color: kColorFimary,
-              child: Text(
+            child: ElevatedButton(
+              // color: kColorFimary,
+              child: const Text(
                 'Đổi mật khẩu',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              textColor: Colors.white,
-              splashColor: kColorFimary,
+              // textColor: Colors.white,
+              // splashColor: kColorFimary,
               onPressed: _sendToServer,
-              padding: EdgeInsets.only(top: 12, bottom: 12),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25.0),
-                  side: BorderSide(color: kColorFimary)),
+              // padding: const EdgeInsets.only(top: 12, bottom: 12),
+              // shape: RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.circular(25.0),
+              //     side: const BorderSide(color: kColorFimary)),
             ),
           ),
         ),
@@ -149,8 +148,8 @@ class _EditUserScreenState extends State<EditUserScreen> {
 
   String? validateMobile(String? value) {
     String pattern = r'(^[0-9]*$)';
-    RegExp regExp = new RegExp(pattern);
-    if (value!.length == 0) {
+    RegExp regExp = RegExp(pattern);
+    if (value!.isEmpty) {
       return "Hãy nhập số diện thoại";
     } else if (!regExp.hasMatch(value)) {
       return "Số điện thoại không đúng";
@@ -160,8 +159,8 @@ class _EditUserScreenState extends State<EditUserScreen> {
 
   String? validateName(String? value) {
     String pattern = r'(^[a-zA-Z ]*$)';
-    RegExp regExp = new RegExp(pattern);
-    if (value!.length == 0) {
+    RegExp regExp = RegExp(pattern);
+    if (value!.isEmpty) {
       return "Hãy nhập tên";
     } else if (!regExp.hasMatch(value)) {
       return "Tên không đúng";

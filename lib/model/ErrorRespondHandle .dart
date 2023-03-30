@@ -9,9 +9,9 @@ class ErrorRespondHandle {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['error'] = error.toJson();
-    return _data;
+    final data = <String, dynamic>{};
+    data['error'] = error.toJson();
+    return data;
   }
 }
 
@@ -32,10 +32,10 @@ class Error {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['status'] = status;
-    _data['name'] = name;
-    _data['message'] = message;
-    return _data;
+    final data = <String, dynamic>{};
+    data['status'] = status;
+    data['name'] = name;
+    data['message'] = message;
+    return data;
   }
 }

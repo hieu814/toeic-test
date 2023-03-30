@@ -61,27 +61,27 @@ class ImageModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['name'] = this.name;
-    data['alternativeText'] = this.alternativeText;
-    data['caption'] = this.caption;
-    data['hash'] = this.hash;
-    data['ext'] = this.ext;
-    data['mime'] = this.mime;
-    data['size'] = this.size;
-    data['width'] = this.width;
-    data['height'] = this.height;
-    data['url'] = this.url;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['name'] = name;
+    data['alternativeText'] = alternativeText;
+    data['caption'] = caption;
+    data['hash'] = hash;
+    data['ext'] = ext;
+    data['mime'] = mime;
+    data['size'] = size;
+    data['width'] = width;
+    data['height'] = height;
+    data['url'] = url;
     // if (this.formats != null) {
     //   data['formats'] = this.formats!.toJson();
     // }
-    data['provider'] = this.provider;
-    data['related'] = this.related;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
-    data['id'] = this.id;
+    data['provider'] = provider;
+    data['related'] = related;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
+    data['id'] = id;
     return data;
   }
 }

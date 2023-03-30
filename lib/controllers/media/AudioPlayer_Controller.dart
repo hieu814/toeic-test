@@ -2,7 +2,6 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:get/get.dart';
 
 import '../../model/Audio.dart';
-import '../../model/models.dart';
 import '../../utils/constant.dart';
 
 class AudioPlayerController extends GetxController {

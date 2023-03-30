@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/controllers.dart';
@@ -18,9 +16,9 @@ class GroupVocabulary extends GetView<VocabularyController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Vocabulary"),
+        title: const Text("Vocabulary"),
       ),
-      body: Obx(() => Container(
+      body: Obx(() => SizedBox(
             height: double.infinity,
             width: double.infinity,
             child: ListView.builder(

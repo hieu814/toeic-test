@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:toeic/utils/constant.dart';
 
 class CommonTextBox extends StatelessWidget {
@@ -16,7 +14,7 @@ class CommonTextBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-        constraints: BoxConstraints(minWidth: double.infinity),
+        constraints: const BoxConstraints(minWidth: double.infinity),
         child: Padding(
             padding: const EdgeInsets.only(top: 16.0, right: 8.0, left: 8.0),
             child: TextFormField(

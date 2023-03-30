@@ -18,7 +18,7 @@ class HomeHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SearchField(),
+          const SearchField(),
           Expanded(child: Container()),
           IconBtnWithCounter(
             icon: Icons.analytics_outlined,

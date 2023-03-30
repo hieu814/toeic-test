@@ -9,14 +9,14 @@ import '../../utils/constant.dart';
 
 class HomeController extends GetxController {
   static HomeController instance = Get.find();
-  var _count = 0.obs;
+  final _count = 0.obs;
   int get count => _count.value;
   void increase() {
     _count.value++;
   }
 
-  Rx<GroupExam> _groupExam = Rx<GroupExam>(GroupExam(groupexams: []));
-  Rx<GroupVocabulary> _groupVocabulary =
+  final Rx<GroupExam> _groupExam = Rx<GroupExam>(GroupExam(groupexams: []));
+  final Rx<GroupVocabulary> _groupVocabulary =
       Rx<GroupVocabulary>(GroupVocabulary(groupVocabularies: []));
 
   GroupVocabulary get groupVocabulary => _groupVocabulary.value;

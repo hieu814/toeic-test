@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:toeic/utils/common_function.dart';
@@ -21,7 +20,7 @@ class ChangePassScreen extends StatefulWidget {
 }
 
 class _ChangePassScreenState extends State<ChangePassScreen> {
-  GlobalKey<FormState> _key = new GlobalKey();
+  final GlobalKey<FormState> _key = GlobalKey();
   final ImagePicker _imagePicker = ImagePicker();
   String? oldPassword, password, confirmPassword;
 
@@ -35,11 +34,11 @@ class _ChangePassScreenState extends State<ChangePassScreen> {
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: SingleChildScrollView(
         child: Container(
-          margin: EdgeInsets.only(left: 16.0, right: 16, bottom: 16),
+          margin: const EdgeInsets.only(left: 16.0, right: 16, bottom: 16),
           child: Form(
             key: _key,
             child: formUI(),
@@ -95,19 +94,19 @@ class _ChangePassScreenState extends State<ChangePassScreen> {
           padding: const EdgeInsets.only(right: 40.0, left: 40.0, top: 40.0),
           child: ConstrainedBox(
             constraints: const BoxConstraints(minWidth: double.infinity),
-            child: RaisedButton(
-              color: kColorFimary,
-              child: Text(
+            child: ElevatedButton(
+              // color: kColorFimary,
+              child: const Text(
                 'Đổi mật khẩu',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              textColor: Colors.white,
-              splashColor: kColorFimary,
+              // textColor: Colors.white,
+              // splashColor: kColorFimary,
               onPressed: _sendToServer,
-              padding: EdgeInsets.only(top: 12, bottom: 12),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25.0),
-                  side: BorderSide(color: kColorFimary)),
+              // padding: const EdgeInsets.only(top: 12, bottom: 12),
+              // shape: RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.circular(25.0),
+              //     side: const BorderSide(color: kColorFimary)),
             ),
           ),
         ),

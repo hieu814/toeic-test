@@ -39,7 +39,7 @@ class _ProfilePicState extends State<ProfilePic> {
                 width: 115,
                 height: 115,
                 child: _image == null
-                    ? DisplayCircleImage()
+                    ? const DisplayCircleImage()
                     : Image.file(
                         _image!,
                         fit: BoxFit.cover,
@@ -55,12 +55,11 @@ class _ProfilePicState extends State<ProfilePic> {
               width: 46,
               child: TextButton(
                 style: TextButton.styleFrom(
-                  shape: RoundedRectangleBorder(
+                  foregroundColor: Colors.white, shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
-                    side: BorderSide(color: Colors.white),
+                    side: const BorderSide(color: Colors.white),
                   ),
-                  primary: Colors.white,
-                  backgroundColor: Color(0xFFF5F6F9),
+                  backgroundColor: const Color(0xFFF5F6F9),
                 ),
                 onPressed: () {
                   _onCameraClick();
@@ -76,26 +75,26 @@ class _ProfilePicState extends State<ProfilePic> {
 
   _onCameraClick() {
     final action = CupertinoActionSheet(
-      message: Text(
+      message: const Text(
         "Add profile picture",
         style: TextStyle(fontSize: 15.0),
       ),
       actions: <Widget>[
         CupertinoActionSheetAction(
-          child: Text("Choose from gallery"),
           isDefaultAction: false,
           onPressed: () async {
             Navigator.pop(context);
           },
+          child: const Text("Choose from gallery"),
         ),
         CupertinoActionSheetAction(
-          child: Text("Take a picture"),
           isDestructiveAction: false,
           onPressed: () async {},
+          child: const Text("Take a picture"),
         )
       ],
       cancelButton: CupertinoActionSheetAction(
-        child: Text("Cancel"),
+        child: const Text("Cancel"),
         onPressed: () {
           Navigator.pop(context);
         },

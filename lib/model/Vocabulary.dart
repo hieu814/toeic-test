@@ -10,16 +10,16 @@ class GroupVocabulary {
     if (json['group-vocabularies'] != null) {
       groupVocabularies = <GroupVocabularies>[];
       json['group-vocabularies'].forEach((v) {
-        groupVocabularies!.add(new GroupVocabularies.fromJson(v));
+        groupVocabularies!.add(GroupVocabularies.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.groupVocabularies != null) {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (groupVocabularies != null) {
       data['group-vocabularies'] =
-          this.groupVocabularies!.map((v) => v.toJson()).toList();
+          groupVocabularies!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -51,7 +51,7 @@ class GroupVocabularies {
     if (json['vocabularies'] != null) {
       vocabularies = <Vocabularies>[];
       json['vocabularies'].forEach((v) {
-        vocabularies!.add(new Vocabularies.fromJson(v));
+        vocabularies!.add(Vocabularies.fromJson(v));
       });
     }
     sId = json['_id'];
@@ -65,18 +65,18 @@ class GroupVocabularies {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.vocabularies != null) {
-      data['vocabularies'] = this.vocabularies!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (vocabularies != null) {
+      data['vocabularies'] = vocabularies!.map((v) => v.toJson()).toList();
     }
-    data['_id'] = this.sId;
-    data['Title'] = this.title;
-    data['published_at'] = this.publishedAt;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
-    data['id'] = this.id;
-    data['Description'] = this.description;
+    data['_id'] = sId;
+    data['Title'] = title;
+    data['published_at'] = publishedAt;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
+    data['id'] = id;
+    data['Description'] = description;
     return data;
   }
 }
@@ -121,27 +121,26 @@ class Vocabularies {
     createdAt = json['createdAt'];
     updatedAt = json['updatedAt'];
     iV = json['__v'];
-    image =
-        json['Image'] != null ? new ImageModel.fromJson(json['Image']) : null;
+    image = json['Image'] != null ? ImageModel.fromJson(json['Image']) : null;
     description = json['Description'];
-    audio = json['Audio'] != null ? new Audio.fromJson(json['Audio']) : null;
+    audio = json['Audio'] != null ? Audio.fromJson(json['Audio']) : null;
     id = json['id'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['_id'] = this.sId;
-    data['Word'] = this.word;
-    data['published_at'] = this.publishedAt;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['__v'] = this.iV;
-    if (this.image != null) {
-      data['Image'] = this.image!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['_id'] = sId;
+    data['Word'] = word;
+    data['published_at'] = publishedAt;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['__v'] = iV;
+    if (image != null) {
+      data['Image'] = image!.toJson();
     }
-    data['Description'] = this.description;
+    data['Description'] = description;
 
-    data['id'] = this.id;
+    data['id'] = id;
     return data;
   }
 }
@@ -156,29 +155,26 @@ class Formats {
 
   Formats.fromJson(Map<String, dynamic> json) {
     thumbnail = json['thumbnail'] != null
-        ? new Thumbnail.fromJson(json['thumbnail'])
+        ? Thumbnail.fromJson(json['thumbnail'])
         : null;
-    large =
-        json['large'] != null ? new Thumbnail.fromJson(json['large']) : null;
-    medium =
-        json['medium'] != null ? new Thumbnail.fromJson(json['medium']) : null;
-    small =
-        json['small'] != null ? new Thumbnail.fromJson(json['small']) : null;
+    large = json['large'] != null ? Thumbnail.fromJson(json['large']) : null;
+    medium = json['medium'] != null ? Thumbnail.fromJson(json['medium']) : null;
+    small = json['small'] != null ? Thumbnail.fromJson(json['small']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.thumbnail != null) {
-      data['thumbnail'] = this.thumbnail!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (thumbnail != null) {
+      data['thumbnail'] = thumbnail!.toJson();
     }
-    if (this.large != null) {
-      data['large'] = this.large!.toJson();
+    if (large != null) {
+      data['large'] = large!.toJson();
     }
-    if (this.medium != null) {
-      data['medium'] = this.medium!.toJson();
+    if (medium != null) {
+      data['medium'] = medium!.toJson();
     }
-    if (this.small != null) {
-      data['small'] = this.small!.toJson();
+    if (small != null) {
+      data['small'] = small!.toJson();
     }
     return data;
   }
@@ -192,7 +188,7 @@ class Thumbnail {
   int? width;
   int? height;
   double? size;
-  Null? path;
+  String? path;
   String? url;
 
   Thumbnail(
@@ -219,16 +215,16 @@ class Thumbnail {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['hash'] = this.hash;
-    data['ext'] = this.ext;
-    data['mime'] = this.mime;
-    data['width'] = this.width;
-    data['height'] = this.height;
-    data['size'] = this.size;
-    data['path'] = this.path;
-    data['url'] = this.url;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['hash'] = hash;
+    data['ext'] = ext;
+    data['mime'] = mime;
+    data['width'] = width;
+    data['height'] = height;
+    data['size'] = size;
+    data['path'] = path;
+    data['url'] = url;
     return data;
   }
 }

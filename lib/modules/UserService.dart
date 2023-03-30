@@ -1,10 +1,7 @@
-import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import '../utils/constant.dart';
 
 import '../model/AuthUser.dart';
-import '../router/RouteName.dart';
 import 'MySecureCache.dart';
 
 class UserService {
